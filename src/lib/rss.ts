@@ -40,7 +40,7 @@ export async function fetchRSSFeed(): Promise<RSSItem[]> {
       id: item.guid || item.link || item.title || '',
       title: item.title || '',
       description: item.contentSnippet || item.summary || '',
-      content: item['content:encoded'] || item.content || item.contentSnippet || '',
+      content: (item as any)['content:encoded'] || item.content || item.contentSnippet || '',
       pubDate: item.pubDate ? new Date(item.pubDate) : new Date(),
       link: item.link || '',
       image: extractImage(item),
