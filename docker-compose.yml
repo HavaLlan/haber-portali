@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  haber-portali:
+    build: .
+    container_name: beyazbelge_haber
+    restart: always
+    ports:
+      - "80:3000"
+    environment:
+      - NODE_ENV=production
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./haber.db:/app/haber.db
+    command: sh -c "npm run build && npm start"

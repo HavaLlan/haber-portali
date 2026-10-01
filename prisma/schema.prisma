@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Haber {
+  id          Int      @id @default(autoincrement())
+  rssId       String?  @unique
+  title       String
+  description String?
+  content     String?
+  pubDate     DateTime?
+  link        String?
+  image       String?
+  socialImage String?
+  kategori    String   @default("diger") // anasayfa | afyon | gundem | siyaset | ekonomi | spor | diger
+  status      String   @default("aktif") // aktif | pasif
+  kaynak      String   @default("rss") // rss | manuel
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([status])
+  @@index([kategori])
+  @@index([pubDate])
+  @@map("haberler")
+}
+
+model Ayar {
+  id    Int    @id @default(autoincrement())
+  key   String @unique
+  value String
+
+  @@map("ayarlar")
+}
