@@ -1,7 +1,9 @@
-﻿import { prisma } from '@/lib/prisma'
+import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import { Newspaper, CheckCircle, XCircle, Rss, ArrowRight } from 'lucide-react'
 import RssGuncelleButonu from '@/components/admin/RssGuncelleButonu'
+
+export const dynamic = 'force-dynamic'
 
 async function getIstatistikler() {
   try {

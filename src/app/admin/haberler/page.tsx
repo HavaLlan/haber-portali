@@ -1,6 +1,8 @@
 import { prisma } from '@/lib/prisma'
 import HaberYonetimPaneli from '@/components/admin/HaberYonetimPaneli'
 
+export const dynamic = 'force-dynamic'
+
 async function getHaberler() {
   try {
     return await prisma.haber.findMany({
