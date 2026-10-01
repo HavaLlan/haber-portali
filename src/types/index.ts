@@ -11,8 +11,8 @@ export interface Haber {
   image: string | null
   socialImage: string | null
   kategori: string
-  status: 'aktif' | 'pasif'
-  kaynak: 'rss' | 'manuel'
+  status: string
+  kaynak: string
   createdAt: Date | string
   updatedAt: Date | string
 }
@@ -24,7 +24,7 @@ export interface HaberForm {
   image: string
   link: string
   kategori: string
-  status: 'aktif' | 'pasif'
+  status: string
 }
 
 export interface ChatMesaj {
