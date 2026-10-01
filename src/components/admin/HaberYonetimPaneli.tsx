@@ -22,7 +22,7 @@ const BOSH_FORM = {
   content: '',
   image: '',
   link: '',
-  status: 'aktif' as const,
+  status: 'aktif',
 }
 
 export default function HaberYonetimPaneli({ initialHaberler }: Props) {
@@ -96,7 +96,7 @@ export default function HaberYonetimPaneli({ initialHaberler }: Props) {
       content: haber.content || '',
       image: haber.image || '',
       link: haber.link || '',
-      status: haber.status as 'aktif' | 'pasif',
+      status: haber.status,
     })
     setSosyalMetinler(null)
     setPanel('duzenle')
