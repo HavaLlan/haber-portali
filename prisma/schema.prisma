@@ -14,13 +14,13 @@ datasource db {
 model Haber {
   id          Int      @id @default(autoincrement())
   rssId       String?  @unique
-  title       String
-  description String?
-  content     String?
+  title       String   @db.Text
+  description String?  @db.Text
+  content     String?  @db.LongText
   pubDate     DateTime?
-  link        String?
-  image       String?
-  socialImage String?
+  link        String?  @db.Text
+  image       String?  @db.Text
+  socialImage String?  @db.Text
   kategori    String   @default("diger") // anasayfa | afyon | gundem | siyaset | ekonomi | spor | diger
   status      String   @default("aktif") // aktif | pasif
   kaynak      String   @default("rss") // rss | manuel
