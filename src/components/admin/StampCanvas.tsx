@@ -123,7 +123,7 @@ export default function StampCanvas({
     let currentLine: {text: string, highlight: boolean}[] = []
     
     function measureLine(line: typeof currentLine, extra = '') {
-      return line.reduce((sum, seg) => sum + ctx.measureText(seg.text).width, 0) + (extra ? ctx.measureText(extra).width : 0)
+      return line.reduce((sum, seg) => sum + ctx!.measureText(seg.text).width, 0) + (extra ? ctx!.measureText(extra).width : 0)
     }
 
     for (const w of words) {
